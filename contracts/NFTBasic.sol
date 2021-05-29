@@ -6,7 +6,6 @@ contract BasicNFT is ERC721,Ownable {
     
   mapping (uint256 => address) internal tokenOwner;
   uint constant minPrice = 0.01 ether;
-  uint nextCoinToAssign = 0;
   address contractOwner;
   constructor() public ERC721("Coinasty", "CNSTY"){contractOwner = msg.sender;}
 
