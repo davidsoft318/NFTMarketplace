@@ -14,7 +14,28 @@ contract BasicNFT is ERC721,Ownable {
     string nameOfCoin;
     string ipfsHash;
   }
- Coin[] public coins;
+  
+  struct Bid {
+        bool hasBid;
+        uint coinIndex;
+        address bidder;
+        uint value;
+    }
+  
+  struct Offer {
+        bool isForSale;
+        uint coinIndex;
+        address seller;
+        uint minValue;          // in ether
+        address onlySellTo;     // specify to sell only to a specific person
+    }
+    
+    mapping (uint => Offer) public coinsOfferedForSale;
+    mapping (uint => Bid) public coinBids;
+    Bid[] public coinBids;
+    Coin[] public coins;
+    
+    event CoinOffered(uint coinIndex, uint minPrice, address toAddress);
   
   function mint(string memory _nameOfCoin) public { 
          require (msg.sender==contractOwner);
@@ -24,9 +45,24 @@ contract BasicNFT is ERC721,Ownable {
     _mint(msg.sender, _coinId);
         
   }
+  function offerCoinForSale(uint _coinIndex, uint minSalePriceInWei) public{
+      if (ownerOf(_coinIndex) != msg.sender) revert();
+      coinsOfferedForSale[_coinIndex] = Offer({ isForSale: true, coinIndex: _coinIndex , seller: msg.sender, minValue: minSalePriceInWei, onlySellTo: address(0)});
+      CoinOffered(_coinIndex, minSalePriceInWei, address(0));
+      
+  }
+  
+  function offerCoinForSaleToAddress(uint _coinIndex, uint minSalePriceInWei,address toAddress) public{
+      if (ownerOf(_coinIndex) != msg.sender) revert();
+      coinsOfferedForSale[_coinIndex] = Offer({ isForSale: true, coinIndex: _coinIndex , seller: msg.sender, minValue: minSalePriceInWei, onlySellTo: toAddress});
+      CoinOffered(_coinIndex, minSalePriceInWei, toAddress);
+      
+  }
   
   function transferCoin(uint _coinIndex, address _coinBuyer)public{
       require (msg.sender==ownerOf(_coinIndex));
       safeTransferFrom(msg.sender, _coinBuyer, _coinIndex);
   } 
+  
+  
 }
