@@ -1,13 +1,45 @@
+import React, { Component } from "react";
+import Home from "./component/Home/Home.js";
+import MrktPlace from "./component/MrktPlace/MrktPlace.js";
 
-function App() {
+//import './App.css';
 
-  
-  return (
-    <div className="App">
-    <h1>Hello world</h1>
-    <h2>Hello</h2>
-    </div>
-  );
+
+class App extends Component {
+  constructor(props) {    
+    super(props);
+
+    this.state = {
+      route: window.location.pathname.replace("/", ""),
+    };
+  }
+
+
+  renderHome() {
+    return (
+      <div>
+        <Home />
+      </div>    
+    );
+  }
+
+  renderMrktPlace() {
+    return (
+      <div>
+        <MrktPlace />
+      </div>    
+    );
+  }
+
+  render() {
+    return (
+      <div>
+          {this.state.route === '' && this.renderHome()}
+          {this.state.route === 'MrktPlace' && this.renderMrktPlace()}
+      </div>
+    );
+  }
 }
 
 export default App;
+
