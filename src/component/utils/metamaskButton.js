@@ -1,5 +1,6 @@
 import MetaMaskOnboarding from 'metamask-onboarding';
 import React from 'react';
+import { MetaMaskButton } from 'rimble-ui';
 
 const ONBOARD_TEXT = 'Click here to install MetaMask!';
 const CONNECT_TEXT = 'Connect';
@@ -55,8 +56,10 @@ export function OnboardingButton() {
     }
   };
   return (
-    <button disabled={isDisabled} onClick={onClick}>
+    <div>
+    <MetaMaskButton disabled={isDisabled} onClick={onClick}>
       {buttonText}
-    </button>
+      </MetaMaskButton>
+    </div>
   );
 }

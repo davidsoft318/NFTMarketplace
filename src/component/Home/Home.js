@@ -6,16 +6,11 @@ export default class Home extends Component {
 
   render(){
   return (
-    <>
+
     <div className='header'>
       Hello World!
-      <a className='btn' href='/MrktPlace'> MrktPlace</a>
-
     </div>
-    <div>
-        < OnboardingButton/>
-      </div>
-    </>
+
    )
  }
 }
