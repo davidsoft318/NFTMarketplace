@@ -1,19 +1,21 @@
 import "./Home.css";
-import React from 'react'
+import React, { Component } from 'react'
+import "../utils/metamaskButton"
+import { OnboardingButton } from "../utils/metamaskButton";
+export default class Home extends Component {
 
-export default function Home() {
+  render(){
   return (
     <>
     <div className='header'>
       Hello World!
-      <button className='btn'
-    type="button"
-    onClick={(e) => {
-      e.preventDefault();
-      window.location.href='/MrktPlace';
-      }}
-> MrktPlace</button>
+      <a className='btn' href='/MrktPlace'> MrktPlace</a>
+
     </div>
+    <div>
+        < OnboardingButton/>
+      </div>
     </>
    )
+ }
 }

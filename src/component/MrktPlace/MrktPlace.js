@@ -1,10 +1,12 @@
 import "./MrktPlace.css";
-import React from 'react'
+import React, { Component } from 'react'
 
-export default function MrktPlace() {
-  return (
+export default class MrktPlace extends Component {
+ render(){ 
+    return (
     <div className='header'>
       Hi this is the Mrketplace!
     </div>
   )
+}
 }
