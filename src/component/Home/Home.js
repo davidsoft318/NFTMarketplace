@@ -1,6 +1,5 @@
 import "./Home.css";
 import React, { Component } from 'react'
-import "../utils/metamaskButton"
 import { OnboardingButton } from "../utils/metamaskButton";
 export default class Home extends Component {
 
@@ -9,6 +8,7 @@ export default class Home extends Component {
 
     <div className='header'>
       Hello World!
+      < OnboardingButton/>
     </div>
 
    )

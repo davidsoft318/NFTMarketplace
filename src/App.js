@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Home from "./component/Home/Home.js";
 import MrktPlace from "./component/MrktPlace/MrktPlace.js";
 import Navbar from "./component/utils/navbar/Navbar.js"
+import Footer from "./component/footer/Footer.js"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "./App.css";
 //import './App.css';
@@ -14,6 +15,7 @@ function App() {
         <Route path='/' exact component={Home} />
         <Route path='/MrktPlace' component={MrktPlace} />
         </Switch>
+        <Footer />
     </Router>
   );
 }
