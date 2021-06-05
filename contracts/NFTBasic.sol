@@ -1,7 +1,8 @@
+// SPDX-License-Identifier: MIT
 pragma solidity >=0.7.0 <0.9.0;
 
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.4.0-solc-0.7/contracts/token/ERC721/ERC721.sol";
-import "https://github.com/OpenZeppelin/openzeppelin-contracts/blob/v3.4.0-solc-0.7/contracts/access/Ownable.sol";
+import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
+import "@openzeppelin/contracts/access/Ownable.sol";
 contract BasicNFT is ERC721,Ownable {
     
   mapping (uint256 => address) internal tokenOwner;
