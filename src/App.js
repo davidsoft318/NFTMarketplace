@@ -5,6 +5,8 @@ import Navbar from "./component/utils/navbar/Navbar.js"
 import Footer from "./component/footer/Footer.js"
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import "./App.css";
+import publish from "./component/publish/publish.js";
+import Web3Info from "./component/utils/web3/web3info.js";
 //import './App.css';
 
 function App() {
@@ -14,6 +16,8 @@ function App() {
         <Switch>
         <Route path='/' exact component={Home} />
         <Route path='/MrktPlace' component={MrktPlace} />
+        <Route path='/publish' component={publish} />
+        <Route path='/web3info' component={Web3Info} />
         </Switch>
         <Footer />
     </Router>

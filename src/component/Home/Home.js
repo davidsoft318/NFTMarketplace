@@ -8,7 +8,6 @@ export default class Home extends Component {
 
     <div className='header'>
       Hello World!
-      < OnboardingButton/>
     </div>
 
    )

@@ -3,7 +3,7 @@ pragma solidity >=0.7.0 <0.9.0;
 
 import "@openzeppelin/contracts/token/ERC721/ERC721.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
-contract BasicNFT is ERC721,Ownable {
+contract NFTBasic is ERC721,Ownable {
     
   mapping (uint256 => address) internal tokenOwner;
   uint constant minPrice = 0.01 ether;

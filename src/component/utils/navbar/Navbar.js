@@ -40,8 +40,8 @@ function Navbar() {
         </div>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
           <li className='nav-item'>
-            <Link to='/' className='nav-links' onClick={closeMobileMenu}>
-              Home
+            <Link to='/publish' className='nav-links' onClick={closeMobileMenu}>
+              Publish
             </Link>
           </li>
           <li
@@ -50,11 +50,11 @@ function Navbar() {
             onMouseLeave={onMouseLeave}
           >
             <Link
-              to='/services'
+              to='/web3info'
               className='nav-links'
               onClick={closeMobileMenu}
             >
-              Services <i className='fas fa-caret-down' />
+              web3info <i className='fas fa-caret-down' />
             </Link>
             {dropdown && <Dropdown />}
           </li>
